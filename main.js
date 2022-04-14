@@ -5,6 +5,7 @@
 const assert = require('assert');
 // brings in the readline module to access the command line
 const readline = require('readline');
+const { string } = require('stylelint/lib/formatters');
 // use the readline module to print out to the command line
 const rl = readline.createInterface({
   input: process.stdin,
@@ -15,24 +16,29 @@ const rl = readline.createInterface({
 
 
 const rockPaperScissors = (hand1, hand2) => {
- 
-  if(hand1 === hand2) {
+hand1 = hand1.toLowerCase().trim(' ')
+hand2 = hand2.toLowerCase().trim(' ')
+
+   if(hand1 === hand2) {
     return "It's a tie!"
-  } if((hand1.toLowerCase() === 'rock') && (hand2 === 'paper')) {
-    return "Hand two wins!"
-  } if((hand1 === 'paper') && (hand2 === 'scissors')) {
+  } if((hand1 === 'rock') && (hand2 === 'paper')) {
     return "Hand two wins!"
   } if((hand1 === 'rock') && (hand2 === 'scissors')) {
     return "Hand one wins!"
-  // } if((hand1 === 'rOcK') && (hand2 === ' paper ')) {
-  //   return "Hand two wins!"
-  // } if((hand1 === 'Paper') && (hand2 === 'SCISSORS')) {
-  //   return "Hand two wins!"
-  // } if((hand1 === 'rock ') && (hand2 === 'sCiSsOrs')) {
-  //   return "Hand one wins!"
-  // }
-
+  } if((hand1 === 'paper') && (hand2 === 'scissors')) {
+    return "Hand two wins!"
+  } if((hand1 === 'paper') && (hand2 === 'rock')) {
+    return "Hand one wins!"
+  } if((hand1 === 'scissors') && (hand2 === 'rock')) {
+    return "Hand two wins!"
+  } if((hand1 === 'scissors') && (hand2 === 'paper')) {
+    return "Hand one wins!"
+  }
 }
+
+
+
+
   // Write code here
   // Use the unit test to see what is expected
 
